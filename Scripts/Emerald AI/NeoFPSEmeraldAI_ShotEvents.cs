@@ -4,74 +4,78 @@ using NeoFPS.ModularFirearms;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WizardsCode.NeoFPS.Unofficial.ScoreSystem;
 
-public class NeoFPSEmeraldAI_ShotEvents : MonoBehaviour
+namespace WizardsCode.NeoFPS.Unofficial.EmeraldAI
 {
-    [SerializeField, Tooltip("How many points does the player loose for each shot?")]
-    private int m_ScoreLossPerShot = 25;
-
-    Transform m_Player = null;
-    private FpsInventoryBase m_Inventory;
-    private ITrigger currentTrigger;
-    private ScoreManager m_ScoreManager;
-
-    private void Awake()
+    public class NeoFPSEmeraldAI_ShotEvents : MonoBehaviour
     {
-        m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
-    }
+        [SerializeField, Tooltip("How many points does the player loose for each shot?")]
+        private int m_ScoreLossPerShot = 25;
 
-    private void OnEnable()
-    {
-        SpawnPoint spawn = FindObjectOfType<SpawnPoint>();
-        spawn.onSpawn += OnPlayerSpawn;
-    }
+        Transform m_Player = null;
+        private FpsInventoryBase m_Inventory;
+        private ITrigger currentTrigger;
+        private ScoreManager m_ScoreManager;
 
-    private void OnDisable()
-    {
-        SpawnPoint spawn = FindObjectOfType<SpawnPoint>();
-        if (spawn != null)
+        private void Awake()
         {
-            spawn.onSpawn -= OnPlayerSpawn;
+            m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
         }
-    }
 
-    private void OnPlayerSpawn()
-    {
-        m_Player = GameObject.FindGameObjectWithTag("Player").transform;
-        m_Inventory = m_Player.GetComponent<FpsInventoryBase>();
-        m_Inventory.onSelectionChanged += OnInventorySelectionChanged;
-        OnInventorySelectionChanged(m_Inventory.selected);
-    }
-
-    private void OnInventorySelectionChanged(IQuickSlotItem item)
-    {
-        if (item == null) return;
-
-        ITrigger trigger = item.GetComponent<ITrigger>();
-
-        if (trigger != null)
+        private void OnEnable()
         {
-            if (currentTrigger != null)
+            SpawnPoint spawn = FindObjectOfType<SpawnPoint>();
+            spawn.onSpawn += OnPlayerSpawn;
+        }
+
+        private void OnDisable()
+        {
+            SpawnPoint spawn = FindObjectOfType<SpawnPoint>();
+            if (spawn != null)
             {
-                currentTrigger.onShoot -= OnShoot;
+                spawn.onSpawn -= OnPlayerSpawn;
             }
-            currentTrigger = trigger;
-            currentTrigger.onShoot += OnShoot;
         }
-    }
 
-    private void OnShoot()
-    {
-        m_ScoreManager.OnShot(m_ScoreLossPerShot);
-
-        // Find all AIs within x metres and make them flee
-        Collider[] colliders = Physics.OverlapSphere(m_Player.position, 150);
-        for (int i = 0; i < colliders.Length; i++)
+        private void OnPlayerSpawn()
         {
-            EmeraldAIEventsManager events = colliders[i].GetComponent<EmeraldAIEventsManager>();
-            if (events != null)
+            m_Player = GameObject.FindGameObjectWithTag("Player").transform;
+            m_Inventory = m_Player.GetComponent<FpsInventoryBase>();
+            m_Inventory.onSelectionChanged += OnInventorySelectionChanged;
+            OnInventorySelectionChanged(m_Inventory.selected);
+        }
+
+        private void OnInventorySelectionChanged(IQuickSlotItem item)
+        {
+            if (item == null) return;
+
+            ITrigger trigger = item.GetComponent<ITrigger>();
+
+            if (trigger != null)
             {
-                events.FleeFromTarget(m_Player);
+                if (currentTrigger != null)
+                {
+                    currentTrigger.onShoot -= OnShoot;
+                }
+                currentTrigger = trigger;
+                currentTrigger.onShoot += OnShoot;
+            }
+        }
+
+        private void OnShoot()
+        {
+            m_ScoreManager.OnShot(m_ScoreLossPerShot);
+
+            // Find all AIs within x metres and make them flee
+            Collider[] colliders = Physics.OverlapSphere(m_Player.position, 150);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                EmeraldAIEventsManager events = colliders[i].GetComponent<EmeraldAIEventsManager>();
+                if (events != null)
+                {
+                    events.FleeFromTarget(m_Player);
+                }
             }
         }
     }

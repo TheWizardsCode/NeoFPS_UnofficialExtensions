@@ -6,67 +6,70 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HudShotFeedback : PlayerCharacterHudBase
+namespace WizardsCode.NeoFPS.Unofficial.ScoreSystem
 {
-    [SerializeField, Tooltip("The text readout for the most recent shot taken.")]
-    private Text m_ShotText = null;
-    [SerializeField, Tooltip("The number of log lines to show in the HUD.")]
-    private int m_NumberOfLines = 4;
-
-    ScoreManager m_ScoreManager = null;
-
-    protected override void OnDestroy()
+    public class HudShotFeedback : PlayerCharacterHudBase
     {
-        base.OnDestroy();
+        [SerializeField, Tooltip("The text readout for the most recent shot taken.")]
+        private Text m_ShotText = null;
+        [SerializeField, Tooltip("The number of log lines to show in the HUD.")]
+        private int m_NumberOfLines = 4;
 
-        // Unsubscribe from old character
-        if (m_ScoreManager != null)
-            m_ScoreManager.onShotTaken -= OnShotTaken;
-    }
+        ScoreManager m_ScoreManager = null;
 
-    public override void OnPlayerCharacterChanged(ICharacter character)
-    {
-        if (m_ScoreManager != null)
-            m_ScoreManager.onShotTaken -= OnShotTaken;
-
-        if (character as Component != null)
-            m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
-        else
-            m_ScoreManager = null;
-
-        if (m_ScoreManager != null)
+        protected override void OnDestroy()
         {
-            m_ScoreManager.onShotTaken += OnShotTaken;
-            OnShotTaken("");
-            gameObject.SetActive(true);
+            base.OnDestroy();
+
+            // Unsubscribe from old character
+            if (m_ScoreManager != null)
+                m_ScoreManager.onShotTaken -= OnShotTaken;
         }
-        else
+
+        public override void OnPlayerCharacterChanged(ICharacter character)
         {
-            gameObject.SetActive(false);
-        }
-    }
+            if (m_ScoreManager != null)
+                m_ScoreManager.onShotTaken -= OnShotTaken;
 
-    private void OnShotTaken(string log)
-    {
-        string original = m_ShotText.text;
-        m_ShotText.text = log;
-        string[] lines = Regex.Split(m_ShotText.text, "\r\n|\r|\n");
+            if (character as Component != null)
+                m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
+            else
+                m_ScoreManager = null;
 
-        int lineCount = 0;
-        string resultLog = "";
-
-        for (int i = lines.Length - 1; i >= 0 && lineCount < m_NumberOfLines; i--)
-        {
-            if (!lines[i].StartsWith("Bloodloss") && lines[i] != "")
+            if (m_ScoreManager != null)
             {
-                lineCount++;
-                resultLog = lines[i] + "\n" + resultLog;
+                m_ScoreManager.onShotTaken += OnShotTaken;
+                OnShotTaken("");
+                gameObject.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
             }
         }
-        if (lineCount == 0)
+
+        private void OnShotTaken(string log)
         {
-            resultLog = original;
+            string original = m_ShotText.text;
+            m_ShotText.text = log;
+            string[] lines = Regex.Split(m_ShotText.text, "\r\n|\r|\n");
+
+            int lineCount = 0;
+            string resultLog = "";
+
+            for (int i = lines.Length - 1; i >= 0 && lineCount < m_NumberOfLines; i--)
+            {
+                if (!lines[i].StartsWith("Bloodloss") && lines[i] != "")
+                {
+                    lineCount++;
+                    resultLog = lines[i] + "\n" + resultLog;
+                }
+            }
+            if (lineCount == 0)
+            {
+                resultLog = original;
+            }
+            m_ShotText.text = resultLog;
         }
-        m_ShotText.text = resultLog;
     }
 }

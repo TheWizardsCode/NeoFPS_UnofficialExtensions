@@ -5,46 +5,49 @@ using UnityEngine.UI;
 using NeoFPS.SinglePlayer;
 using NeoFPS;
 
-public class HudScoreCounter : PlayerCharacterHudBase
+namespace WizardsCode.NeoFPS.Unofficial.ScoreSystem
 {
-    [SerializeField, Tooltip("The text readout for the current character score.")]
-    private Text m_ScoreText = null;
-
-    ScoreManager m_ScoreManager = null;
-
-    protected override void OnDestroy()
+    public class HudScoreCounter : PlayerCharacterHudBase
     {
-        base.OnDestroy();
+        [SerializeField, Tooltip("The text readout for the current character score.")]
+        private Text m_ScoreText = null;
 
-        // Unsubscribe from old character
-        if (m_ScoreManager != null)
-            m_ScoreManager.onScoreChanged -= OnScoreChanged;
-    }
+        ScoreManager m_ScoreManager = null;
 
-    public override void OnPlayerCharacterChanged(ICharacter character)
-    {
-        if (m_ScoreManager != null)
-            m_ScoreManager.onScoreChanged -= OnScoreChanged;
-
-        if (character as Component != null)
-            m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
-        else
-            m_ScoreManager = null;
-
-        if (m_ScoreManager != null)
+        protected override void OnDestroy()
         {
-            m_ScoreManager.onScoreChanged += OnScoreChanged;
-            OnScoreChanged(0f, m_ScoreManager.score);
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
-    }
+            base.OnDestroy();
 
-    protected virtual void OnScoreChanged(float from, float to)
-    {
-        m_ScoreText.text = ((int)to).ToString();
+            // Unsubscribe from old character
+            if (m_ScoreManager != null)
+                m_ScoreManager.onScoreChanged -= OnScoreChanged;
+        }
+
+        public override void OnPlayerCharacterChanged(ICharacter character)
+        {
+            if (m_ScoreManager != null)
+                m_ScoreManager.onScoreChanged -= OnScoreChanged;
+
+            if (character as Component != null)
+                m_ScoreManager = GameObject.FindObjectOfType<ScoreManager>();
+            else
+                m_ScoreManager = null;
+
+            if (m_ScoreManager != null)
+            {
+                m_ScoreManager.onScoreChanged += OnScoreChanged;
+                OnScoreChanged(0f, m_ScoreManager.score);
+                gameObject.SetActive(true);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
+
+        protected virtual void OnScoreChanged(float from, float to)
+        {
+            m_ScoreText.text = ((int)to).ToString();
+        }
     }
 }
