@@ -7,17 +7,12 @@ namespace WizardsCode.NeoFPS.Animation
     /// <summary>
     /// Converts NavMesh movement to animation controller parameters.
     /// </summary>
+    [RequireComponent(typeof(AiBaseCharacter))]
     [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(NavMeshAgent))]
     [RequireComponent(typeof(LookAt))]
     public class SimpleLocomotionController : MonoBehaviour
     {
-        [Header("Character Setup")]
-        [SerializeField, Tooltip("The maximum speed of this character, this will usually be a full sprint.")]
-        private float m_MaxSpeed = 8f;
-        [SerializeField, Tooltip("The factor used to calculate the normal (usually walking) speed of the character relative to the maximum speed. Normally you won't want to change this, but if your character is sliding when walking this can help.")]
-        float m_NormalSpeedFactor = 0.4375f;
-
         [Header("Animation Parameters")]
         [SerializeField, Tooltip("The normalized speed of the character. This does not take into account the direction of travel.")]
         private string m_SpeedParameterName = "Speed";
@@ -30,19 +25,15 @@ namespace WizardsCode.NeoFPS.Animation
         [SerializeField, Tooltip("Enable click to move when running in the editor (ignored in the application).")]
         private bool m_EnableClickToMove = true;
 
-        float m_NormalSpeed; // typically this will be the walking speed
-
-
         RaycastHit hitInfo = new RaycastHit();
+        private AiBaseCharacter m_Character;
         Animator m_Animator;
         NavMeshAgent m_Agent;
         private LookAt lookAt;
 
         void Start()
         {
-            m_NormalSpeed = m_MaxSpeed * m_NormalSpeedFactor;
-            m_NormalSpeed += 0.01f; // increase the walking speed a little to avoid rounding errors affecting comparisons
-
+            m_Character = GetComponent<AiBaseCharacter>();
             m_Animator = GetComponent<Animator>();
             m_Agent = GetComponent<NavMeshAgent>();
             lookAt = GetComponent<LookAt>();
@@ -64,14 +55,14 @@ namespace WizardsCode.NeoFPS.Animation
             float speedParam = 0;
             if (!Mathf.Approximately(magVelocity, 0))
             {
-                if (magVelocity <= m_NormalSpeed)
+                if (magVelocity <= m_Character.walkingSpeed)
                 {
-                    speedParam = magVelocity / (m_NormalSpeed + m_MaxSpeed);
-                    animSpeed = magVelocity / m_NormalSpeed;
+                    speedParam = magVelocity / (m_Character.walkingSpeed + m_Character.runningSpeed);
+                    animSpeed = magVelocity / m_Character.walkingSpeed;
                 }
                 else
                 {
-                    speedParam = magVelocity / m_MaxSpeed;
+                    speedParam = magVelocity / m_Character.runningSpeed;
                     animSpeed = speedParam;
                 }
             }

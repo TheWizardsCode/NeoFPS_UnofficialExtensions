@@ -37,7 +37,7 @@ namespace WizardsCode.NeoFPS.Animation
         {
             if (!m_Head)
             {
-                Debug.LogError("No head transform defined - LookAt disabled");
+                Debug.LogError("No head transform defined in LookAt for " + gameObject.name + " - disabling LookAt component.");
                 enabled = false;
                 return;
             }
