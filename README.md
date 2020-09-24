@@ -39,7 +39,7 @@ To setup a weapon add the following components and then make the weapon availabl
   * `AiBaseWeapon` - Defines the characteristics of the weapon such as range and damage. 
   * `FpsInventoryWieldable` - this is from the NeoFPS asset and is unchanged for the AI.
   
-Finally, you will need a Node Canvas `FSMowner` or `BehaviourTreeOwnder".
+Finally, you will need a Node Canvas `FSMowner` or `BehaviourTreeOwner`. See the `FSM` and `Behaviour Tree` folders for examples - please send us more!
 
 ## Emerald AI
 
