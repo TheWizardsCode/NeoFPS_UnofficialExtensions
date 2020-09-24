@@ -18,6 +18,14 @@ when adding this code to your project. There are three easy ways you can fix thi
 
 A set of actions and conditions for [Node Canvas](https://bit.ly/NodeCanvas) plus some sample finite state machines and behaviour trees to provide AI to your characters.
 
+Setup of your NPCs is fairly simple:
+
+  * Add `AiBaseCharacter`
+  * Add `AiBaseInventory`
+  * Add `SimpleLocomotionController`
+  * [OPTIONAL] Add `AiSounds`
+  * [OPTIONAL] Add `SoundSource`
+  
 ## Emerald AI
 
 We've added a blood loss system to the official Neo FPS [Emerald AI](http://bit.ly/EmeraldAI) integration, you can see how it works in our [Weekend Hack: FPS Hunter Game](https://www.youtube.com/watch?v=I27gpQKw_jM&t=81).
