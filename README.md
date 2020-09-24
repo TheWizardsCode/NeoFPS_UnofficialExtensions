@@ -1,7 +1,7 @@
 # NeoFPS_UnofficialExtensions
 This is a set of scripts that we've written for games using [NeoFPS](https://bit.ly/NeoFPS), an excellent first person asset in the Unity Asset Store. Feel free to use them. We'd love for you to contribute to them too. 
 
-Code here is built for specific purposes and it works for that purpose. We encourage reuse but we don't offer any kind of guarantee that it will work in your use case. 
+Code here is built for specific purposes and it works for that purpose. We encourage reuse but we don't offer any kind of guarantee that it will suit your use case. 
 If you can improve the code we will gladly accept a patch. If you are having problems using it raise an issue and maybe we'll be able to help, but no promises. Do please 
 help others if you use this code, more voices makes this more useful.
 
