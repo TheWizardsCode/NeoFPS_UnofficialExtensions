@@ -1,4 +1,5 @@
-﻿using EmeraldAI;
+﻿#if EMERALD_AI_PRESENT
+using EmeraldAI;
 using NeoFPS;
 using NeoFPS.ModularFirearms;
 using System.Collections;
@@ -80,3 +81,4 @@ namespace WizardsCode.NeoFPS.Unofficial.EmeraldAI
         }
     }
 }
+#endif

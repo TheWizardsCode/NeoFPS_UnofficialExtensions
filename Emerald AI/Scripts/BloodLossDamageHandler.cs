@@ -1,4 +1,5 @@
-﻿using NeoFPS;
+﻿#if EMERALD_AI_PRESENT
+using NeoFPS;
 using NeoFPS.EmeraldAI;
 using System;
 using UnityEngine;
@@ -132,3 +133,4 @@ namespace WizardsCode.NeoFPS.Unofficial.EmeraldAI
         }
     }
 }
+#endif
