@@ -18,14 +18,29 @@ when adding this code to your project. There are three easy ways you can fix thi
 
 A set of actions and conditions for [Node Canvas](https://bit.ly/NodeCanvas) plus some sample finite state machines and behaviour trees to provide AI to your characters.
 
-Setup of your NPCs is fairly simple:
+Setup of your NPCs is fairly simple add the following components. All components have tooltips for their parameters to help in setting things up:
 
-  * Add `AiBaseCharacter`
-  * Add `AiBaseInventory`
-  * Add `SimpleLocomotionController`
-  * [OPTIONAL] Add `AiSounds`
-  * [OPTIONAL] Add `SoundSource`
+  * `AiBaseCharacter` - Defines the basic characters of an NPC
+  * `AiBaseInventory` - This is a modified version of the [QuickSwitchInventory](https://docs.neofps.com/manual/inventoryref-mb-fpsinventoryquickswitch.html) in NeoFPS
+  * `SimpleLocomotionController` - converts NavMesh movement to animation controller parameters, you need to provide your own animation controller
+  * [OPTIONAL] `AiSounds` - define AI sounds and provide public methods for playing them (you can also use animation events to play them)
+  * [OPTIONAL] `SoundSource` - make sounds made by this AI audible to other AIs which will change the AIs awareness level and can be used to make those AIs approach the sound source
+
+You will also need (at least) the following standard NeoFPS components:
+
+  * `BasicHealth Manager`
+  * `BasicDamagerHandler`(s)
+  * [Optional] `SimpleSurface`(s)
   
+AI Weapons do not use the modular firearms system. This decision was made for performance reasons (fewer components) and because the game this was developed for require melee weapons not firearms. Work is needed to make it support ranged weapons, it's not clear at this point whether it would be best to reuse parts of the modular firearm system or not. The `AiBaseWeapon` is designed to allow flexibility in the implementation - patches welcome.
+
+To setup a weapon add the following components and then make the weapon available to the AI via its inventory.
+
+  * `AiBaseWeapon` - Defines the characteristics of the weapon such as range and damage. 
+  * `FpsInventoryWieldable` - this is from the NeoFPS asset and is unchanged for the AI.
+  
+Finally, you will need a Node Canvas `FSMowner` or `BehaviourTreeOwnder".
+
 ## Emerald AI
 
 We've added a blood loss system to the official Neo FPS [Emerald AI](http://bit.ly/EmeraldAI) integration, you can see how it works in our [Weekend Hack: FPS Hunter Game](https://www.youtube.com/watch?v=I27gpQKw_jM&t=81).
