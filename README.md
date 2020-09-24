@@ -18,11 +18,13 @@ when adding this code to your project. There are three easy ways you can fix thi
 
 A set of actions and conditions for [Node Canvas](https://bit.ly/NodeCanvas) plus some sample finite state machines and behaviour trees to provide AI to your characters.
 
+### Character Setup
+
 Setup of your NPCs is fairly simple add the following components. All components have tooltips for their parameters to help in setting things up:
 
-  * `AiBaseCharacter` - Defines the basic characters of an NPC
+  * `AiBaseCharacter` - Defines the basic characters of an NPC, this provides the required `ICharacter` implementation for NeoFPS to be aware of the character.
   * `AiBaseInventory` - This is a modified version of the [QuickSwitchInventory](https://docs.neofps.com/manual/inventoryref-mb-fpsinventoryquickswitch.html) in NeoFPS
-  * `SimpleLocomotionController` - converts NavMesh movement to animation controller parameters, you need to provide your own animation controller
+  * [OPTIONAL] `SimpleLocomotionController` - converts NavMesh movement to animation controller parameters, you need to provide your own animation controller. If you aren't using Navmesh for movement you don't need this.
   * [OPTIONAL] `AiSounds` - define AI sounds and provide public methods for playing them (you can also use animation events to play them)
   * [OPTIONAL] `SoundSource` - make sounds made by this AI audible to other AIs which will change the AIs awareness level and can be used to make those AIs approach the sound source
 
@@ -32,6 +34,10 @@ You will also need (at least) the following standard NeoFPS components:
   * `BasicDamagerHandler`(s)
   * [Optional] `SimpleSurface`(s)
   
+AI's should be on the layer `CharacterControllers`
+
+### AI Weapon Setup
+
 AI Weapons do not use the modular firearms system. This decision was made for performance reasons (fewer components) and because the game this was developed for require melee weapons not firearms. Work is needed to make it support ranged weapons, it's not clear at this point whether it would be best to reuse parts of the modular firearm system or not. The `AiBaseWeapon` is designed to allow flexibility in the implementation - patches welcome.
 
 To setup a weapon add the following components and then make the weapon available to the AI via its inventory.
@@ -39,7 +45,11 @@ To setup a weapon add the following components and then make the weapon availabl
   * `AiBaseWeapon` - Defines the characteristics of the weapon such as range and damage. 
   * `FpsInventoryWieldable` - this is from the NeoFPS asset and is unchanged for the AI.
   
-Finally, you will need a Node Canvas `FSMowner` or `BehaviourTreeOwner`. See the `FSM` and `Behaviour Tree` folders for examples - please send us more!
+### Node Canvas Setup
+
+There's nothing special about setting up Node Canvas for your AIs. Just add either an `FSMowner` or `BehaviourTreeOwner`. All available actions and conditions are in the `NeoFPS` category. 
+
+See the `FSM` and `Behaviour Tree` folders for examples - please send us more!
 
 ## Emerald AI
 
