@@ -34,7 +34,6 @@ namespace WizardsCode.NeoFPS
         float baselineAwarenessLevel = 0.4f;
         [SerializeField, Range(0.01f, 10f), Tooltip("The amount of awareness to gain/lose per second as the agent returns to the baseline.")]
         float awarenessBaseliningStep = 0.1f;
-
         [SerializeField, Tooltip("The distance the agent can see in normal conditions.")]
         float m_SightDistance = 50;
         [SerializeField, Tooltip("The field of view for this agent in normal conditions.")]
@@ -51,6 +50,8 @@ namespace WizardsCode.NeoFPS
         float m_CombatMovementSpeed = 8;
         [SerializeField, Tooltip("The speed of the attack.")]
         internal float attackSpeed = 1;
+        [SerializeField, Tooltip("Minimum number of backup AI before this character will approach to attack.")]
+        int m_RequiredBackupCount = 2;
 
         [Header("Animation Settings")]
         [SerializeField, Tooltip("The name of an animation parameter that will trigger the death animation transition")]
@@ -148,6 +149,15 @@ namespace WizardsCode.NeoFPS
         public float combatMovementSpeed
         {
             get { return m_CombatMovementSpeed; }
+        }
+
+        /// <summary>
+        /// The required number of ally characters required in a group with this agent before
+        /// it feels confident enough to attack.
+        /// </summary>
+        public float requiredBackupCount
+        {
+            get { return m_RequiredBackupCount; }
         }
 
         public IQuickSlots quickSlots

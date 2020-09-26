@@ -11,8 +11,8 @@ namespace WizardsCode.NeoFPS.BehaviourTree{
 	public class HasRequiredBackup : ConditionTask<AiBaseCharacter>
 	{
 		[Tooltip("The target that the agent is to attack.")]
-		public BBParameter<ICharacter> target;
-		[Tooltip("The number of friendly characters that will attack with this agent should they decide to attack.")]
+		public BBParameter<AiBaseCharacter> target;
+		[Tooltip("The number of friendly characters that are required in a group before sufficient backup is considered available.")]
 		public BBParameter<int> m_RequiredBackupCharacters = 2;
 
 		//Use for initialization. This is called only once in the lifetime of the task.
@@ -34,6 +34,8 @@ namespace WizardsCode.NeoFPS.BehaviourTree{
 		//Called once per frame while the condition is active.
 		//Return whether the condition is success or failure.
 		protected override bool OnCheck(){
+			if (m_RequiredBackupCharacters.value == 0) return true;
+
 			// check for agents within a distance of the target
 			float range = 10;
 			int maxAgents = m_RequiredBackupCharacters.value * 4; // there may be many dead around

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
   m_Name: Seek and Destroy
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":624.2698,"y":291.4845},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDistance":{"_name":"sightDistance","_targetVariableID":"1c504a14-107f-478b-80cf-53acfbf76439"},"fieldOfView":{"_name":"fieldOfView","_targetVariableID":"3667532b-8e45-4bd9-88ad-75c1d86ea673"},"layerMask":{"value":67117568},"m_IsDebug":false,"_invert":true,"$type":"WizardsCode.NeoFPS.BehaviourTree.CanSeeTarget"},"_position":{"x":219.2128,"y":470.7976},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"1"},{"failureRemap":1,"_position":{"x":228.9994,"y":579.9985},"$type":"NodeCanvas.BehaviourTrees.Remapper","$id":"2"},{"_action":{"currentPOI":{"_name":"currentPOI","_targetVariableID":"f6ec467c-101a-4621-a50b-3a940ac4ae62"},"searchDistance":{"_name":"seekDistance","_targetVariableID":"70f452a5-2d7a-4810-a90e-6b40c0af2a3f"},"awarenessDistance":{"_name":"awarenessDistance","_targetVariableID":"60cf8a78-3a1f-4ef2-900c-e78cb9711b78"},"speed":{"_name":"walkingSpeed","_targetVariableID":"e9b967a5-1120-4fe1-ad5f-e00096cc2f56"},"maxDuration":{"_value":2.0},"keepDistance":{"_value":5.0},"locationCertainty":{"_name":"awarenessLevel","_targetVariableID":"6a37be32-709b-437b-a477-56875963af24"},"$type":"WizardsCode.NeoFPS.BehaviourTree.SearchForTarget"},"_position":{"x":205.9994,"y":711.9985},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"3"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"m_RequiredBackupCharacters":{"_value":2},"_invert":true,"$type":"WizardsCode.NeoFPS.BehaviourTree.HasRequiredBackup"},"_position":{"x":416.0,"y":477.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"4"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":7.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},{"parameter":{"_value":"Warn"},"parameterHashID":{},"$type":"NodeCanvas.Tasks.Actions.MecanimSetTrigger"},{"m_MinDistance":{"_value":4.0},"m_MaxDistance":{"_value":8.0},"$type":"WizardsCode.AI.Retreat"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":424.0,"y":596.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"_invert":true,"$type":"WizardsCode.NeoFPS.BehaviourTree.IsInAttackPosition"},"_position":{"x":631.4177,"y":478.6619},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"6"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"distanceToTarget":{"_name":"distanceToTarget","_targetVariableID":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a"},"$type":"WizardsCode.NeoFPS.BehaviourTree.SelectWeapon"},{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDuration":{"_value":0.5},"m_IsDebug":false,"$type":"WizardsCode.NeoFPS.BehaviourTree.MoveToAttackPosition"},{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":623.4177,"y":594.6619},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"7"},{"_position":{"x":906.2613,"y":481.2403},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"8"},{"_action":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},"_position":{"x":836.6581,"y":566.5688},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_action":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"stop":{},"attackSpeed":{"_value":5.0},"m_IsDebug":false,"$type":"WizardsCode.NeoFPS.BehaviourTree.Attack"},"_position":{"x":967.918,"y":570.0356},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"8"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.target","_name":"target","_id":"e6f998b2-c9ac-4ecb-b1da-b252603499e0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":824.2676,"y":288.8178},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDistance":{"_name":"sightDistance","_targetVariableID":"1c504a14-107f-478b-80cf-53acfbf76439"},"fieldOfView":{"_name":"fieldOfView","_targetVariableID":"3667532b-8e45-4bd9-88ad-75c1d86ea673"},"layerMask":{"value":67117568},"$type":"WizardsCode.NeoFPS.BehaviourTree.CanSeeTarget"},"_position":{"x":639.993,"y":429.3278},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"1"},{"_position":{"x":647.9929,"y":537.3275},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"m_RequiredBackupCharacters":{"_name":"requiredBackupCount","_targetVariableID":"64606601-7c80-4f6e-82b4-ee855b827933"},"_invert":true,"$type":"WizardsCode.NeoFPS.BehaviourTree.HasRequiredBackup"},"_position":{"x":414.6667,"y":643.6647},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"3"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":7.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},{"parameter":{"_value":"Warn"},"parameterHashID":{},"$type":"NodeCanvas.Tasks.Actions.MecanimSetTrigger"},{"m_MinDistance":{"_value":4.0},"m_MaxDistance":{"_value":8.0},"$type":"WizardsCode.AI.Retreat"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":422.6667,"y":762.6646},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"_invert":true,"$type":"WizardsCode.NeoFPS.BehaviourTree.IsInAttackPosition"},"_position":{"x":630.0844,"y":645.3265},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"5"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"distanceToTarget":{"_name":"distanceToTarget","_targetVariableID":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a"},"$type":"WizardsCode.NeoFPS.BehaviourTree.SelectWeapon"},{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDuration":{"_value":0.5},"m_IsDebug":false,"$type":"WizardsCode.NeoFPS.BehaviourTree.MoveToAttackPosition"},{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":622.0844,"y":761.3265},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"},{"_position":{"x":904.928,"y":647.9049},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"7"},{"_action":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},"_position":{"x":835.3248,"y":733.2334},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"8"},{"_action":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"stop":{},"attackSpeed":{"_value":5.0},"m_IsDebug":false,"$type":"WizardsCode.NeoFPS.BehaviourTree.Attack"},"_position":{"x":966.5847,"y":736.7002},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"9"},{"_action":{"currentPOI":{"_name":"currentPOI","_targetVariableID":"f6ec467c-101a-4621-a50b-3a940ac4ae62"},"searchDistance":{"_name":"seekDistance","_targetVariableID":"70f452a5-2d7a-4810-a90e-6b40c0af2a3f"},"awarenessDistance":{"_name":"awarenessDistance","_targetVariableID":"60cf8a78-3a1f-4ef2-900c-e78cb9711b78"},"speed":{"_name":"walkingSpeed","_targetVariableID":"e9b967a5-1120-4fe1-ad5f-e00096cc2f56"},"maxDuration":{"_value":2.0},"keepDistance":{"_value":5.0},"locationCertainty":{"_name":"awarenessLevel","_targetVariableID":"6a37be32-709b-437b-a477-56875963af24"},"$type":"WizardsCode.NeoFPS.BehaviourTree.SearchForTarget"},"_position":{"x":963.3242,"y":432.0019},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"10"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"10"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.target","_name":"target","_id":"e6f998b2-c9ac-4ecb-b1da-b252603499e0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distanceToTarget":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.distanceToTarget","_name":"distanceToTarget","_id":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sightDistance":{"_propertyPath":"WizardsCode.NeoFPS.AiBaseCharacter.sightDistance","_name":"sightDistance","_id":"1c504a14-107f-478b-80cf-53acfbf76439","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"awarenessDistance":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.awarenessDistance","_name":"awarenessDistance","_id":"60cf8a78-3a1f-4ef2-900c-e78cb9711b78","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -24,14 +24,15 @@ MonoBehaviour:
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"walkingSpeed":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.walkingSpeed","_name":"walkingSpeed","_id":"e9b967a5-1120-4fe1-ad5f-e00096cc2f56","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"awarenessLevel":{"_propertyPath":"WizardsCode.NeoFPS.AiBaseCharacter.awarenessLevel","_name":"awarenessLevel","_id":"6a37be32-709b-437b-a477-56875963af24","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentPOI":{"_propertyPath":"WizardsCode.NeoFPS.AiBaseCharacter.currentPOI","_name":"currentPOI","_id":"f6ec467c-101a-4621-a50b-3a940ac4ae62","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"requiredBackupCount":{"_propertyPath":"WizardsCode.NeoFPS.AiBaseCharacter.requiredBackupCount","_name":"requiredBackupCount","_id":"64606601-7c80-4f6e-82b4-ee855b827933","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _objectReferences: []
   _graphSource:
     _version: 3.08
     _category: 
     _comments: 
-    _translation: {x: -150, y: -393}
-    _zoomFactor: 1
+    _translation: {x: -156, y: -172}
+    _zoomFactor: 0.7500082
   _haltSerialization: 0
 #---GRAPH_START---
 #The pretty formatted json serialization bellow is only a reference to help in version control diff. Other than that it is not used at all.
@@ -40,8 +41,8 @@ MonoBehaviour:
 #    "nodes": [
 #        {
 #            "_position": {
-#                "x": 624.2698,
-#                "y": 291.4845
+#                "x": 824.2676,
+#                "y": 288.8178
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.Selector",
 #            "$id": "0"
@@ -63,62 +64,22 @@ MonoBehaviour:
 #                "layerMask": {
 #                    "value": 67117568
 #                },
-#                "m_IsDebug": false,
-#                "_invert": true,
 #                "$type": "WizardsCode.NeoFPS.BehaviourTree.CanSeeTarget"
 #            },
 #            "_position": {
-#                "x": 219.2128,
-#                "y": 470.7976
+#                "x": 639.993,
+#                "y": 429.3278
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
 #            "$id": "1"
 #        },
 #        {
-#            "failureRemap": 1,
 #            "_position": {
-#                "x": 228.9994,
-#                "y": 579.9985
+#                "x": 647.9929,
+#                "y": 537.3275
 #            },
-#            "$type": "NodeCanvas.BehaviourTrees.Remapper",
+#            "$type": "NodeCanvas.BehaviourTrees.Selector",
 #            "$id": "2"
-#        },
-#        {
-#            "_action": {
-#                "currentPOI": {
-#                    "_name": "currentPOI",
-#                    "_targetVariableID": "f6ec467c-101a-4621-a50b-3a940ac4ae62"
-#                },
-#                "searchDistance": {
-#                    "_name": "seekDistance",
-#                    "_targetVariableID": "70f452a5-2d7a-4810-a90e-6b40c0af2a3f"
-#                },
-#                "awarenessDistance": {
-#                    "_name": "awarenessDistance",
-#                    "_targetVariableID": "60cf8a78-3a1f-4ef2-900c-e78cb9711b78"
-#                },
-#                "speed": {
-#                    "_name": "walkingSpeed",
-#                    "_targetVariableID": "e9b967a5-1120-4fe1-ad5f-e00096cc2f56"
-#                },
-#                "maxDuration": {
-#                    "_value": 2.0
-#                },
-#                "keepDistance": {
-#                    "_value": 5.0
-#                },
-#                "locationCertainty": {
-#                    "_name": "awarenessLevel",
-#                    "_targetVariableID": "6a37be32-709b-437b-a477-56875963af24"
-#                },
-#                "$type": "WizardsCode.NeoFPS.BehaviourTree.SearchForTarget"
-#            },
-#            "_position": {
-#                "x": 205.9994,
-#                "y": 711.9985
-#            },
-#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
-#            "$id": "3"
 #        },
 #        {
 #            "_condition": {
@@ -127,17 +88,18 @@ MonoBehaviour:
 #                    "_targetVariableID": "e6f998b2-c9ac-4ecb-b1da-b252603499e0"
 #                },
 #                "m_RequiredBackupCharacters": {
-#                    "_value": 2
+#                    "_name": "requiredBackupCount",
+#                    "_targetVariableID": "64606601-7c80-4f6e-82b4-ee855b827933"
 #                },
 #                "_invert": true,
 #                "$type": "WizardsCode.NeoFPS.BehaviourTree.HasRequiredBackup"
 #            },
 #            "_position": {
-#                "x": 416.0,
-#                "y": 477.0
+#                "x": 414.6667,
+#                "y": 643.6647
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
-#            "$id": "4"
+#            "$id": "3"
 #        },
 #        {
 #            "_action": {
@@ -183,11 +145,11 @@ MonoBehaviour:
 #                "$type": "NodeCanvas.Framework.ActionList"
 #            },
 #            "_position": {
-#                "x": 424.0,
-#                "y": 596.0
+#                "x": 422.6667,
+#                "y": 762.6646
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
-#            "$id": "5"
+#            "$id": "4"
 #        },
 #        {
 #            "_condition": {
@@ -199,11 +161,11 @@ MonoBehaviour:
 #                "$type": "WizardsCode.NeoFPS.BehaviourTree.IsInAttackPosition"
 #            },
 #            "_position": {
-#                "x": 631.4177,
-#                "y": 478.6619
+#                "x": 630.0844,
+#                "y": 645.3265
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
-#            "$id": "6"
+#            "$id": "5"
 #        },
 #        {
 #            "_action": {
@@ -253,19 +215,19 @@ MonoBehaviour:
 #                "$type": "NodeCanvas.Framework.ActionList"
 #            },
 #            "_position": {
-#                "x": 623.4177,
-#                "y": 594.6619
+#                "x": 622.0844,
+#                "y": 761.3265
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
-#            "$id": "7"
+#            "$id": "6"
 #        },
 #        {
 #            "_position": {
-#                "x": 906.2613,
-#                "y": 481.2403
+#                "x": 904.928,
+#                "y": 647.9049
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.Sequencer",
-#            "$id": "8"
+#            "$id": "7"
 #        },
 #        {
 #            "_action": {
@@ -288,11 +250,11 @@ MonoBehaviour:
 #                "$type": "NodeCanvas.Tasks.Actions.RotateTowards"
 #            },
 #            "_position": {
-#                "x": 836.6581,
-#                "y": 566.5688
+#                "x": 835.3248,
+#                "y": 733.2334
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
-#            "$id": "9"
+#            "$id": "8"
 #        },
 #        {
 #            "_action": {
@@ -310,8 +272,45 @@ MonoBehaviour:
 #                "$type": "WizardsCode.NeoFPS.BehaviourTree.Attack"
 #            },
 #            "_position": {
-#                "x": 967.918,
-#                "y": 570.0356
+#                "x": 966.5847,
+#                "y": 736.7002
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "9"
+#        },
+#        {
+#            "_action": {
+#                "currentPOI": {
+#                    "_name": "currentPOI",
+#                    "_targetVariableID": "f6ec467c-101a-4621-a50b-3a940ac4ae62"
+#                },
+#                "searchDistance": {
+#                    "_name": "seekDistance",
+#                    "_targetVariableID": "70f452a5-2d7a-4810-a90e-6b40c0af2a3f"
+#                },
+#                "awarenessDistance": {
+#                    "_name": "awarenessDistance",
+#                    "_targetVariableID": "60cf8a78-3a1f-4ef2-900c-e78cb9711b78"
+#                },
+#                "speed": {
+#                    "_name": "walkingSpeed",
+#                    "_targetVariableID": "e9b967a5-1120-4fe1-ad5f-e00096cc2f56"
+#                },
+#                "maxDuration": {
+#                    "_value": 2.0
+#                },
+#                "keepDistance": {
+#                    "_value": 5.0
+#                },
+#                "locationCertainty": {
+#                    "_name": "awarenessLevel",
+#                    "_targetVariableID": "6a37be32-709b-437b-a477-56875963af24"
+#                },
+#                "$type": "WizardsCode.NeoFPS.BehaviourTree.SearchForTarget"
+#            },
+#            "_position": {
+#                "x": 963.3242,
+#                "y": 432.0019
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
 #            "$id": "10"
@@ -332,25 +331,7 @@ MonoBehaviour:
 #                "$ref": "0"
 #            },
 #            "_targetNode": {
-#                "$ref": "4"
-#            },
-#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
-#        },
-#        {
-#            "_sourceNode": {
-#                "$ref": "0"
-#            },
-#            "_targetNode": {
-#                "$ref": "6"
-#            },
-#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
-#        },
-#        {
-#            "_sourceNode": {
-#                "$ref": "0"
-#            },
-#            "_targetNode": {
-#                "$ref": "8"
+#                "$ref": "10"
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
 #        },
@@ -374,7 +355,7 @@ MonoBehaviour:
 #        },
 #        {
 #            "_sourceNode": {
-#                "$ref": "4"
+#                "$ref": "2"
 #            },
 #            "_targetNode": {
 #                "$ref": "5"
@@ -383,7 +364,7 @@ MonoBehaviour:
 #        },
 #        {
 #            "_sourceNode": {
-#                "$ref": "6"
+#                "$ref": "2"
 #            },
 #            "_targetNode": {
 #                "$ref": "7"
@@ -392,19 +373,37 @@ MonoBehaviour:
 #        },
 #        {
 #            "_sourceNode": {
-#                "$ref": "8"
+#                "$ref": "3"
 #            },
 #            "_targetNode": {
-#                "$ref": "9"
+#                "$ref": "4"
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
 #        },
 #        {
 #            "_sourceNode": {
-#                "$ref": "8"
+#                "$ref": "5"
 #            },
 #            "_targetNode": {
-#                "$ref": "10"
+#                "$ref": "6"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "7"
+#            },
+#            "_targetNode": {
+#                "$ref": "8"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "7"
+#            },
+#            "_targetNode": {
+#                "$ref": "9"
 #            },
 #            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
 #        }
@@ -483,6 +482,12 @@ MonoBehaviour:
 #                "_name": "currentPOI",
 #                "_id": "f6ec467c-101a-4621-a50b-3a940ac4ae62",
 #                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+#            },
+#            "requiredBackupCount": {
+#                "_propertyPath": "WizardsCode.NeoFPS.AiBaseCharacter.requiredBackupCount",
+#                "_name": "requiredBackupCount",
+#                "_id": "64606601-7c80-4f6e-82b4-ee855b827933",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
 #            }
 #        }
 #    },

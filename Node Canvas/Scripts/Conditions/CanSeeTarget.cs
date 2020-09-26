@@ -1,4 +1,5 @@
 #if NODE_CANVAS_PRESENT
+using NeoFPS;
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
@@ -28,6 +29,8 @@ namespace WizardsCode.NeoFPS.BehaviourTree
 
         private RaycastHit hit;
         private Transform eyesPosition;
+        private Transform lastTarget;
+        private IDamageHandler[] damageHandlers;
 
         protected override string info
         {
@@ -77,41 +80,45 @@ namespace WizardsCode.NeoFPS.BehaviourTree
         protected override bool OnCheck()
         {
             if (target.value == null) return false;
+            if (target.value != lastTarget) {
+                lastTarget = target.value;
+                damageHandlers = lastTarget.GetComponentsInChildren<IDamageHandler>();
+            }
 
-            var t = target.value.transform;
-
-            // TODO is it more efficient to do the raycast first?
-            if (Vector3.Angle(t.position - eyesPosition.position, eyesPosition.forward) > fieldOfView.value)
+            // TODO: curently we "see" on the first collider that matches, perhaps increase chance of sight for each collider
+            bool canSee = false;
+            for (int i = 0; i < damageHandlers.Length; i++)
             {
+                Transform sightTarget = ((BasicDamageHandler)damageHandlers[i]).transform;
 #if UNITY_EDITOR
                 if (m_IsDebug)
-                    Debug.Log("Target is outside the field of view of the agent.");
+                {
+                    Debug.DrawRay(eyesPosition.position, sightTarget.position - eyesPosition.position, Color.white);
+                }
 #endif
-                return false;
-            }
 
-            // TODO need to look for specific parts of the target rather than just 1 m above transform
-            Vector3 targetPos = t.position;
-            targetPos.y += 1;
-            Ray ray = new Ray(eyesPosition.position, t.position - eyesPosition.position);
-            bool canSee = false;
-            if (Physics.Raycast(ray, out hit, maxDistance.value, layerMask))
-            {
-                canSee = hit.collider.transform.root == t;
-            }
-
+                // TODO is it more efficient to do the raycast first?
+                if (Vector3.Angle(sightTarget.position - eyesPosition.position, eyesPosition.forward) > fieldOfView.value)
+                {
 #if UNITY_EDITOR
-            if (m_IsDebug)
-            {
-                if (canSee)
+                    if (m_IsDebug) Debug.Log("Target is outside the field of view of the agent.");
+#endif
+                    return false;
+                }
+
+                // TODO need to look for specific parts of the target rather than just 1 m above transform
+                Vector3 targetPos = sightTarget.position;
+                targetPos.y += 1;
+                Ray ray = new Ray(eyesPosition.position, sightTarget.position - eyesPosition.position);
+                if (Physics.Raycast(ray, out hit, maxDistance.value, layerMask))
                 {
-                    Debug.DrawRay(eyesPosition.position, targetPos - eyesPosition.position, Color.green, 2);
-                } else
-                {
-                    Debug.DrawRay(eyesPosition.position, targetPos - eyesPosition.position, Color.red, 2);
+                    canSee = hit.collider.transform.root == sightTarget.transform.root;
+                    if (canSee)
+                    {
+                        break;
+                    }
                 }
             }
-#endif
             return canSee;
         }
 
