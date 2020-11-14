@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 
-namespace WizardsCode.NeoFPS.Animation
+namespace WizardsCode.AI.Animation
 {
     /// <summary>
     /// Look At a point of interest using the Animator LookAt API.

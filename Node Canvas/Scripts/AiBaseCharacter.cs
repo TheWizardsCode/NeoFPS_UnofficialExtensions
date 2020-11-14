@@ -10,11 +10,11 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using WizardsCode.AI;
-using WizardsCode.NeoFPS.Animation;
-using WizardsCode.NeoFPS.BehaviourTree;
+using WizardsCode.AI.Animation;
+using WizardsCode.AI.BehaviourTree;
 using Vector3 = UnityEngine.Vector3;
 
-namespace WizardsCode.NeoFPS
+namespace WizardsCode.AI
 {
     /// <summary>
     /// Handles the core setup of the AI Character and manages whether the character is alive or not.
@@ -300,6 +300,19 @@ namespace WizardsCode.NeoFPS
 
         void Update()
         {
+            UpdateAwarenessLevel();
+
+            if (hitCheck)
+            {
+                PerformHitCheck();
+            }
+        }
+
+        /// <summary>
+        /// Move the characters awareness level back towards the steady state.
+        /// </summary>
+        private void UpdateAwarenessLevel()
+        {
             float step = awarenessBaseliningStep * Time.deltaTime;
             if (awarenessLevel < baselineAwarenessLevel - step)
             {
@@ -314,30 +327,34 @@ namespace WizardsCode.NeoFPS
                 awarenessLevel = baselineAwarenessLevel;
                 currentPOI = null; // lost interest in the current POI
             }
+        }
 
-            if (hitCheck)
-            {
-                hitCheckDuration -= Time.deltaTime;
-                hitCheck = hitCheckDuration > 0;
+        /// <summary>
+        /// Test if this character has hit anything with its equipped weapon
+        /// in this frame.
+        /// </summary>
+        private void PerformHitCheck()
+        {
+            hitCheckDuration -= Time.deltaTime;
+            hitCheck = hitCheckDuration > 0;
 
-                IAiWeapon weapon = quickSlots.selected.GetComponent<IAiWeapon>();
+            IAiWeapon weapon = quickSlots.selected.GetComponent<IAiWeapon>();
 
-                // check for a hit in various angles from the hitDetector
-                // if any land they will impart damage and remaining checks will be skipped
-                Vector3 forward = weapon.hitDetector.forward;
-                Vector3[] direction = { forward,
+            // check for a hit in various angles from the hitDetector
+            // if any land they will impart damage and remaining checks will be skipped
+            Vector3 forward = weapon.hitDetector.forward;
+            Vector3[] direction = { forward,
                                         Quaternion.AngleAxis(15, Vector3.up) * forward,
                                         Quaternion.AngleAxis(-15, Vector3.up) * forward,
                                         Quaternion.AngleAxis(15, Vector3.right) * forward,
                                         Quaternion.AngleAxis(-15, Vector3.right) * forward
                 };
-                for (int i = 0; i < direction.Length; i++)
+            for (int i = 0; i < direction.Length; i++)
+            {
+                Ray ray = new Ray(weapon.hitDetector.position, direction[i]);
+                if (CheckForHit(weapon, ray))
                 {
-                    Ray ray = new Ray(weapon.hitDetector.position, direction[i]);
-                    if (CheckForHit(weapon, ray))
-                    {
-                        break;
-                    }
+                    break;
                 }
             }
         }

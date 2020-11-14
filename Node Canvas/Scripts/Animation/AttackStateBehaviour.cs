@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WizardsCode.NeoFPS;
+using WizardsCode.AI;
 
 namespace WizardsCode.Animation
 {

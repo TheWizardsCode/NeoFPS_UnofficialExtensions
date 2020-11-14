@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
-using WizardsCode.NeoFPS;
+using WizardsCode.AI;
 
 namespace WizardsCode.AI
 {

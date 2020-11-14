@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace WizardsCode.NeoFPS.Animation
+namespace WizardsCode.AI.Animation
 {
     /// <summary>
     /// A collection of constants representing animatorcontroler states

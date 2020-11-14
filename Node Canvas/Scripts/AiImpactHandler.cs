@@ -3,9 +3,9 @@ using NeoFPS;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WizardsCode.NeoFPS.BehaviourTree;
+using WizardsCode.AI.BehaviourTree;
 
-namespace WizardsCode.NeoFPS
+namespace WizardsCode.AI
 {
     public class AiImpactHandler : MonoBehaviour, IImpactHandler
     {

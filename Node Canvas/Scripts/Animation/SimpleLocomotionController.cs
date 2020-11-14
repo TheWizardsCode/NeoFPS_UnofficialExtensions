@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace WizardsCode.NeoFPS.Animation
+namespace WizardsCode.AI.Animation
 {
     /// <summary>
     /// Converts NavMesh movement to animation controller parameters.

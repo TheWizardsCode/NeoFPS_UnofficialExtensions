@@ -4,7 +4,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
-namespace WizardsCode.NeoFPS.BehaviourTree
+namespace WizardsCode.AI.BehaviourTree
 {
 
 	[Category("NeoFPS")]

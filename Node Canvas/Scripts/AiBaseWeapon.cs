@@ -3,7 +3,7 @@ using NeoFPS;
 using UnityEngine;
 
 
-namespace WizardsCode.NeoFPS
+namespace WizardsCode.AI
 {
     public class AiBaseWeapon : MonoBehaviour, IAiWeapon
     {

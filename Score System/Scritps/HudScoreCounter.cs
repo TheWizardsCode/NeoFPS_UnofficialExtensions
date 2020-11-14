@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using NeoFPS.SinglePlayer;
 using NeoFPS;
 
-namespace WizardsCode.NeoFPS.Unofficial.ScoreSystem
+namespace WizardsCode.AI.Unofficial.ScoreSystem
 {
     public class HudScoreCounter : PlayerCharacterHudBase
     {

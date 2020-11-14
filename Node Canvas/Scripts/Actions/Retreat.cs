@@ -3,7 +3,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 using UnityEngine.AI;
-using WizardsCode.NeoFPS;
+using WizardsCode.AI;
 
 namespace WizardsCode.AI{
 

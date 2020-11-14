@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
-namespace WizardsCode.NeoFPS.BehaviourTree 
+namespace WizardsCode.AI.BehaviourTree 
 {
 	[Category("NeoFPS")]
 	[Description("Conduct a search for a target known to be in the area. They will search for a defined duration and return success at the end of the search. If the character goes beyond a given distance then return failure.")]

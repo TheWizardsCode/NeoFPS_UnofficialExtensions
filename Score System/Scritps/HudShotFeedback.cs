@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WizardsCode.NeoFPS.Unofficial.ScoreSystem
+namespace WizardsCode.AI.Unofficial.ScoreSystem
 {
     public class HudShotFeedback : PlayerCharacterHudBase
     {

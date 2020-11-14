@@ -1,7 +1,7 @@
 ﻿#if NODE_CANVAS_PRESENT
 using NeoFPS;
 
-namespace WizardsCode.NeoFPS
+namespace WizardsCode.AI
 {
     /// <summary>
     /// An Inventory for AI Characters.

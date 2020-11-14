@@ -2,7 +2,7 @@
 using NeoFPS;
 using UnityEngine;
 
-namespace WizardsCode.NeoFPS.BehaviourTree
+namespace WizardsCode.AI.BehaviourTree
 {
     public interface IAiCharacter : ICharacter
     {
