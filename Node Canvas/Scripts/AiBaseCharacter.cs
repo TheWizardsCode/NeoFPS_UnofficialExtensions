@@ -97,6 +97,21 @@ namespace WizardsCode.AI
             get { return m_RunningSpeed; }
         }
 
+        AiGroupController group;
+        /// <summary>
+        /// Test to see if this agent is classed as a leader.
+        /// Leaders are either alone or a part of a group that
+        /// follows their lead.
+        /// </summary>
+        public bool IsLeader
+        {
+            get
+            {
+                if (group == null) return true;
+                return group.IsLeader;
+            }
+        }
+
         private float m_DistanceToTarget;
 
         public event CharacterDelegates.OnControllerChange onControllerChanged;
@@ -235,6 +250,8 @@ namespace WizardsCode.AI
             m_BehaviourTreeOwner = GetComponent<BehaviourTreeOwner>();
             m_FsmOwner = GetComponent<FSMOwner>();
             ToggleRagdoll(true);
+
+            group = GetComponent<AiGroupController>();
         }
 
         private void InventorySelectionChanged(IQuickSlotItem item)
