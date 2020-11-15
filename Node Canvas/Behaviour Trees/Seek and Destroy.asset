@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
   m_Name: Seek and Destroy
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":670.6593,"y":50.66611},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"saveObjectAs":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"saveDistanceAs":{"_name":"distanceToTarget","_targetVariableID":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a"},"$type":"WizardsCode.AI.BehaviourTree.FindClosestPlayer"},"_position":{"x":462.7409,"y":130.4777},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"dynamic":true,"_position":{"x":671.6773,"y":133.7271},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDistance":{"_name":"sightDistance","_targetVariableID":"1c504a14-107f-478b-80cf-53acfbf76439"},"fieldOfView":{"_name":"fieldOfView","_targetVariableID":"3667532b-8e45-4bd9-88ad-75c1d86ea673"},"layerMask":{"value":67117568},"$type":"WizardsCode.AI.NodeCanvas.CanSeeTarget"},"_position":{"x":437.9364,"y":285.1016},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"3"},{"_position":{"x":441.5003,"y":397.502},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"4"},{"_subTree":{"_value":1},"_position":{"x":324.1476,"y":521.3716},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"5"},{"_subTree":{"_value":2},"_position":{"x":534.3748,"y":525.9574},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"6"},{"_condition":{"valueA":{"_name":"currentPOI","_targetVariableID":"f6ec467c-101a-4621-a50b-3a940ac4ae62"},"valueB":{"_name":""},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":644.4174,"y":277.5155},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"7"},{"_subTree":{"_value":3},"_position":{"x":648.9688,"y":390.8936},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"8"},{"_subTree":{"_value":4},"_position":{"x":892.4844,"y":278.1049},"$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"9"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.target","_name":"target","_id":"e6f998b2-c9ac-4ecb-b1da-b252603499e0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":670.6593,"y":50.66611},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"saveObjectAs":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"saveDistanceAs":{"_name":"distanceToTarget","_targetVariableID":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a"},"$type":"WizardsCode.AI.BehaviourTree.FindClosestPlayer"},"_position":{"x":462.7409,"y":130.4777},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"dynamic":true,"_position":{"x":671.6773,"y":133.7271},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"isDynamic":true,"_condition":{"target":{"_name":"target","_targetVariableID":"e6f998b2-c9ac-4ecb-b1da-b252603499e0"},"maxDistance":{"_name":"sightDistance","_targetVariableID":"1c504a14-107f-478b-80cf-53acfbf76439"},"fieldOfView":{"_name":"fieldOfView","_targetVariableID":"3667532b-8e45-4bd9-88ad-75c1d86ea673"},"layerMask":{"value":67117568},"$type":"WizardsCode.AI.NodeCanvas.CanSeeTarget"},"_position":{"x":437.9364,"y":285.1016},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"3"},{"_position":{"x":441.5003,"y":397.502},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"4"},{"_subTree":{"_value":1},"_position":{"x":325.6648,"y":521.3716},"_comment":"If
+    this agent is not feeling brave enough to attack (i.e. they feel they can''t
+    win) they will warn other agents and back off.","$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"5"},{"_subTree":{"_value":2},"_position":{"x":534.3748,"y":525.9574},"_comment":"Move
+    to an attack position and attack.","$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"6"},{"isDynamic":true,"_condition":{"valueA":{"_name":"currentPOI","_targetVariableID":"f6ec467c-101a-4621-a50b-3a940ac4ae62"},"valueB":{"_name":""},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":644.4174,"y":277.5155},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"7"},{"_subTree":{"_value":3},"_position":{"x":648.9688,"y":390.8936},"_comment":"There
+    is something of interest nearby, go and investigate.","$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"8"},{"_subTree":{"_value":4},"_position":{"x":892.4844,"y":278.1049},"_comment":"Everything
+    seems normal go about normal life.","$type":"NodeCanvas.BehaviourTrees.SubTree","$id":"9"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"7"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"9"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"7"},"_targetNode":{"$ref":"8"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.target","_name":"target","_id":"e6f998b2-c9ac-4ecb-b1da-b252603499e0","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
     UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distanceToTarget":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.distanceToTarget","_name":"distanceToTarget","_id":"bd47fcd0-f9a6-4cb2-9a1c-ebdbd234685a","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sightDistance":{"_propertyPath":"WizardsCode.NeoFPS.AiBaseCharacter.sightDistance","_name":"sightDistance","_id":"1c504a14-107f-478b-80cf-53acfbf76439","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
     mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"awarenessDistance":{"_propertyPath":"WizardsCode.NeoFPS.BehaviourTree.AiBaseCharacter.awarenessDistance","_name":"awarenessDistance","_id":"60cf8a78-3a1f-4ef2-900c-e78cb9711b78","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
@@ -82,6 +87,7 @@ MonoBehaviour:
 #            "$id": "2"
 #        },
 #        {
+#            "isDynamic": true,
 #            "_condition": {
 #                "target": {
 #                    "_name": "target",
@@ -120,9 +126,10 @@ MonoBehaviour:
 #                "_value": 1
 #            },
 #            "_position": {
-#                "x": 324.1476,
+#                "x": 325.6648,
 #                "y": 521.3716
 #            },
+#            "_comment": "If this agent is not feeling brave enough to attack (i.e. they feel they can't win) they will warn other agents and back off.",
 #            "$type": "NodeCanvas.BehaviourTrees.SubTree",
 #            "$id": "5"
 #        },
@@ -134,10 +141,12 @@ MonoBehaviour:
 #                "x": 534.3748,
 #                "y": 525.9574
 #            },
+#            "_comment": "Move to an attack position and attack.",
 #            "$type": "NodeCanvas.BehaviourTrees.SubTree",
 #            "$id": "6"
 #        },
 #        {
+#            "isDynamic": true,
 #            "_condition": {
 #                "valueA": {
 #                    "_name": "currentPOI",
@@ -164,6 +173,7 @@ MonoBehaviour:
 #                "x": 648.9688,
 #                "y": 390.8936
 #            },
+#            "_comment": "There is something of interest nearby, go and investigate.",
 #            "$type": "NodeCanvas.BehaviourTrees.SubTree",
 #            "$id": "8"
 #        },
@@ -175,6 +185,7 @@ MonoBehaviour:
 #                "x": 892.4844,
 #                "y": 278.1049
 #            },
+#            "_comment": "Everything seems normal go about normal life.",
 #            "$type": "NodeCanvas.BehaviourTrees.SubTree",
 #            "$id": "9"
 #        }
