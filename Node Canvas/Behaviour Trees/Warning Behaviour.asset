@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: Warning Behaviour
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_condition":{"conditions":[{"target":{"_name":"target","_targetVariableID":"9103a396-68c9-4119-b5f4-4b8bbd694449"},"m_RequiredBackupCharacters":{"_name":"requiredBackupCount","_targetVariableID":"aa72085b-c876-43dd-a6cd-d5f870632a76"},"_invert":true,"$type":"WizardsCode.AI.BehaviourTree.HasRequiredBackup"},{"method":{"_baseInfo":"WizardsCode.AI.AiGroupController|get_IsFull|System.Boolean","_paramsInfo":""},"checkValue":{"_type":"System.Boolean","_value":{"$content":false,"$type":"System.Boolean"}},"$type":"NodeCanvas.Tasks.Conditions.CheckProperty_Multiplatform"}],"$type":"NodeCanvas.Framework.ConditionList"},"_position":{"x":461.0,"y":192.0},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"0"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"9103a396-68c9-4119-b5f4-4b8bbd694449"},"speed":{"_value":50.0},"angleDifference":{"_value":11.3},"upVector":{},"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},{"parameter":{"_value":"Warn"},"parameterHashID":{},"$type":"NodeCanvas.Tasks.Actions.MecanimSetTrigger"},{"m_MinDistance":{"_value":4.0},"m_MaxDistance":{"_value":8.0},"$type":"WizardsCode.AI.Retreat"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":464.0,"y":322.9998},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.target","_name":"target","_id":"9103a396-68c9-4119-b5f4-4b8bbd694449","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"requiredBackupCount":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.requiredBackupCount","_name":"requiredBackupCount","_id":"aa72085b-c876-43dd-a6cd-d5f870632a76","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.08
+    _category: 
+    _comments: 
+    _translation: {x: 0, y: 0}
+    _zoomFactor: 1
+  _haltSerialization: 0
+#---GRAPH_START---
+#The pretty formatted json serialization bellow is only a reference to help in version control diff. Other than that it is not used at all.
+#{
+#    "type": "NodeCanvas.BehaviourTrees.BehaviourTree",
+#    "nodes": [
+#        {
+#            "_condition": {
+#                "conditions": [
+#                    {
+#                        "target": {
+#                            "_name": "target",
+#                            "_targetVariableID": "9103a396-68c9-4119-b5f4-4b8bbd694449"
+#                        },
+#                        "m_RequiredBackupCharacters": {
+#                            "_name": "requiredBackupCount",
+#                            "_targetVariableID": "aa72085b-c876-43dd-a6cd-d5f870632a76"
+#                        },
+#                        "_invert": true,
+#                        "$type": "WizardsCode.AI.BehaviourTree.HasRequiredBackup"
+#                    },
+#                    {
+#                        "method": {
+#                            "_baseInfo": "WizardsCode.AI.AiGroupController|get_IsFull|System.Boolean",
+#                            "_paramsInfo": ""
+#                        },
+#                        "checkValue": {
+#                            "_type": "System.Boolean",
+#                            "_value": {
+#                                "$content": false,
+#                                "$type": "System.Boolean"
+#                            }
+#                        },
+#                        "$type": "NodeCanvas.Tasks.Conditions.CheckProperty_Multiplatform"
+#                    }
+#                ],
+#                "$type": "NodeCanvas.Framework.ConditionList"
+#            },
+#            "_position": {
+#                "x": 461.0,
+#                "y": 192.0
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
+#            "$id": "0"
+#        },
+#        {
+#            "_action": {
+#                "actions": [
+#                    {
+#                        "target": {
+#                            "_name": "target",
+#                            "_targetVariableID": "9103a396-68c9-4119-b5f4-4b8bbd694449"
+#                        },
+#                        "speed": {
+#                            "_value": 50.0
+#                        },
+#                        "angleDifference": {
+#                            "_value": 11.3
+#                        },
+#                        "upVector": {
+#
+#                        },
+#                        "$type": "NodeCanvas.Tasks.Actions.RotateTowards"
+#                    },
+#                    {
+#                        "parameter": {
+#                            "_value": "Warn"
+#                        },
+#                        "parameterHashID": {
+#
+#                        },
+#                        "$type": "NodeCanvas.Tasks.Actions.MecanimSetTrigger"
+#                    },
+#                    {
+#                        "m_MinDistance": {
+#                            "_value": 4.0
+#                        },
+#                        "m_MaxDistance": {
+#                            "_value": 8.0
+#                        },
+#                        "$type": "WizardsCode.AI.Retreat"
+#                    }
+#                ],
+#                "$type": "NodeCanvas.Framework.ActionList"
+#            },
+#            "_position": {
+#                "x": 464.0,
+#                "y": 322.9998
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "1"
+#        }
+#    ],
+#    "connections": [
+#        {
+#            "_sourceNode": {
+#                "$ref": "0"
+#            },
+#            "_targetNode": {
+#                "$ref": "1"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        }
+#    ],
+#    "canvasGroups": [],
+#    "localBlackboard": {
+#        "_variables": {
+#            "target": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.target",
+#                "_name": "target",
+#                "_id": "9103a396-68c9-4119-b5f4-4b8bbd694449",
+#                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+#            },
+#            "requiredBackupCount": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.requiredBackupCount",
+#                "_name": "requiredBackupCount",
+#                "_id": "aa72085b-c876-43dd-a6cd-d5f870632a76",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            }
+#        }
+#    },
+#    "derivedData": {
+#        "repeat": true,
+#        "$type": "NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"
+#    }
+#}
+#---GRAPH_END---

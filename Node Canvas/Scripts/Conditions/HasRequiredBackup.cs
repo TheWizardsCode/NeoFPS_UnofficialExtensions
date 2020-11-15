@@ -12,7 +12,7 @@ namespace WizardsCode.AI.BehaviourTree{
 	{
 		[Tooltip("The target that the agent is to attack.")]
 		public BBParameter<AiBaseCharacter> target;
-		[Tooltip("The number of friendly characters that are required in a group before sufficient backup is considered available.")]
+		[Tooltip("The number of friendly characters that are required nearby before sufficient backup is considered available.")]
 		public BBParameter<int> m_RequiredBackupCharacters = 2;
 
 		//Use for initialization. This is called only once in the lifetime of the task.

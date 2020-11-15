@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
+  m_Name: Attack
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":135.0,"y":276.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"0"},{"_condition":{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"_invert":true,"$type":"WizardsCode.AI.BehaviourTree.IsInAttackPosition"},"_position":{"x":46.09149,"y":396.999},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"1"},{"_action":{"actions":[{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"distanceToTarget":{"_name":"distanceToTarget","_targetVariableID":"d900b321-f730-44a9-92da-d39b91d5c0f6"},"$type":"WizardsCode.AI.BehaviourTree.SelectWeapon"},{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"maxDuration":{"_value":0.5},"m_IsDebug":false,"$type":"WizardsCode.AI.BehaviourTree.MoveToAttackPosition"},{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"}],"$type":"NodeCanvas.Framework.ActionList"},"_position":{"x":38.09149,"y":512.999},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"2"},{"_position":{"x":320.9351,"y":399.5774},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"3"},{"_action":{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"speed":{"_value":50.0},"angleDifference":{"_value":3.0},"upVector":{"_value":{"y":1.0}},"waitActionFinish":true,"$type":"NodeCanvas.Tasks.Actions.RotateTowards"},"_position":{"x":251.3319,"y":484.9059},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"4"},{"_action":{"target":{"_name":"target","_targetVariableID":"38fd7144-7b15-430f-b178-de79e41118f3"},"stop":{},"attackSpeed":{"_value":5.0},"m_IsDebug":false,"$type":"WizardsCode.AI.BehaviourTree.Attack"},"_position":{"x":383.5918,"y":488.3727},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"5"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.target","_name":"target","_id":"38fd7144-7b15-430f-b178-de79e41118f3","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distanceToTarget":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.distanceToTarget","_name":"distanceToTarget","_id":"d900b321-f730-44a9-92da-d39b91d5c0f6","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _objectReferences: []
+  _graphSource:
+    _version: 3.08
+    _category: 
+    _comments: 
+    _translation: {x: 307, y: -148}
+    _zoomFactor: 1
+  _haltSerialization: 0
+#---GRAPH_START---
+#The pretty formatted json serialization bellow is only a reference to help in version control diff. Other than that it is not used at all.
+#{
+#    "type": "NodeCanvas.BehaviourTrees.BehaviourTree",
+#    "nodes": [
+#        {
+#            "_position": {
+#                "x": 135.0,
+#                "y": 276.0
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.Selector",
+#            "$id": "0"
+#        },
+#        {
+#            "_condition": {
+#                "target": {
+#                    "_name": "target",
+#                    "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                },
+#                "_invert": true,
+#                "$type": "WizardsCode.AI.BehaviourTree.IsInAttackPosition"
+#            },
+#            "_position": {
+#                "x": 46.09149,
+#                "y": 396.999
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
+#            "$id": "1"
+#        },
+#        {
+#            "_action": {
+#                "actions": [
+#                    {
+#                        "target": {
+#                            "_name": "target",
+#                            "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                        },
+#                        "distanceToTarget": {
+#                            "_name": "distanceToTarget",
+#                            "_targetVariableID": "d900b321-f730-44a9-92da-d39b91d5c0f6"
+#                        },
+#                        "$type": "WizardsCode.AI.BehaviourTree.SelectWeapon"
+#                    },
+#                    {
+#                        "target": {
+#                            "_name": "target",
+#                            "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                        },
+#                        "maxDuration": {
+#                            "_value": 0.5
+#                        },
+#                        "m_IsDebug": false,
+#                        "$type": "WizardsCode.AI.BehaviourTree.MoveToAttackPosition"
+#                    },
+#                    {
+#                        "target": {
+#                            "_name": "target",
+#                            "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                        },
+#                        "speed": {
+#                            "_value": 50.0
+#                        },
+#                        "angleDifference": {
+#                            "_value": 3.0
+#                        },
+#                        "upVector": {
+#                            "_value": {
+#                                "y": 1.0
+#                            }
+#                        },
+#                        "waitActionFinish": true,
+#                        "$type": "NodeCanvas.Tasks.Actions.RotateTowards"
+#                    }
+#                ],
+#                "$type": "NodeCanvas.Framework.ActionList"
+#            },
+#            "_position": {
+#                "x": 38.09149,
+#                "y": 512.999
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "2"
+#        },
+#        {
+#            "_position": {
+#                "x": 320.9351,
+#                "y": 399.5774
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.Sequencer",
+#            "$id": "3"
+#        },
+#        {
+#            "_action": {
+#                "target": {
+#                    "_name": "target",
+#                    "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                },
+#                "speed": {
+#                    "_value": 50.0
+#                },
+#                "angleDifference": {
+#                    "_value": 3.0
+#                },
+#                "upVector": {
+#                    "_value": {
+#                        "y": 1.0
+#                    }
+#                },
+#                "waitActionFinish": true,
+#                "$type": "NodeCanvas.Tasks.Actions.RotateTowards"
+#            },
+#            "_position": {
+#                "x": 251.3319,
+#                "y": 484.9059
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "4"
+#        },
+#        {
+#            "_action": {
+#                "target": {
+#                    "_name": "target",
+#                    "_targetVariableID": "38fd7144-7b15-430f-b178-de79e41118f3"
+#                },
+#                "stop": {
+#
+#                },
+#                "attackSpeed": {
+#                    "_value": 5.0
+#                },
+#                "m_IsDebug": false,
+#                "$type": "WizardsCode.AI.BehaviourTree.Attack"
+#            },
+#            "_position": {
+#                "x": 383.5918,
+#                "y": 488.3727
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "5"
+#        }
+#    ],
+#    "connections": [
+#        {
+#            "_sourceNode": {
+#                "$ref": "0"
+#            },
+#            "_targetNode": {
+#                "$ref": "1"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "0"
+#            },
+#            "_targetNode": {
+#                "$ref": "3"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "1"
+#            },
+#            "_targetNode": {
+#                "$ref": "2"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "3"
+#            },
+#            "_targetNode": {
+#                "$ref": "4"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "3"
+#            },
+#            "_targetNode": {
+#                "$ref": "5"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        }
+#    ],
+#    "canvasGroups": [],
+#    "localBlackboard": {
+#        "_variables": {
+#            "target": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.target",
+#                "_name": "target",
+#                "_id": "38fd7144-7b15-430f-b178-de79e41118f3",
+#                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+#            },
+#            "distanceToTarget": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.distanceToTarget",
+#                "_name": "distanceToTarget",
+#                "_id": "d900b321-f730-44a9-92da-d39b91d5c0f6",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            }
+#        }
+#    },
+#    "derivedData": {
+#        "repeat": true,
+#        "$type": "NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"
+#    }
+#}
+#---GRAPH_END---

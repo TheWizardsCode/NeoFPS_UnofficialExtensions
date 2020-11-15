@@ -25,7 +25,7 @@ namespace WizardsCode.AI.NodeCanvas
         [Space]
         [Header("Editor Only")]
         [Tooltip("Set to true to display debug information in the editor.")]
-        public bool m_IsDebug = true;
+        public bool m_IsDebug = false;
 
         private RaycastHit hit;
         private Transform eyesPosition;
