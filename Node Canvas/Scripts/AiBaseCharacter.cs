@@ -279,7 +279,7 @@ namespace WizardsCode.AI
             // TODO use barriers between character and sound source to influence whether a sound is heard
             if (UnityEngine.Random.value <= chance)
             {
-                Debug.Log(gameObject.name + " heard a sound and will investigate. Chance: " + chance + " distance " + distance);
+                //Debug.Log(gameObject.name + " heard a sound and will investigate. Chance: " + chance + " distance " + distance);
                 awarenessLevel = Mathf.Clamp01(awarenessLevel * 2);
                 currentPOI = sourceTransform;
             }

@@ -48,7 +48,7 @@ namespace WizardsCode.AI.BehaviourTree
                 }
             }
 
-            saveObjectAs.value = closest.GetComponent<FpsSoloCharacter>().bodyTransformHandler.transform;
+            saveObjectAs.value = closest.GetComponent<FpsSoloCharacter>().transform;
             saveDistanceAs.value = dist;
             EndAction();
         }

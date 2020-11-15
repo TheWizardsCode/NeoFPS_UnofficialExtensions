@@ -12,7 +12,7 @@ namespace WizardsCode.AI.BehaviourTree
 	[Description("Conduct a search for a target known to be in the area. They will search for a defined duration and return success at the end of the search. If the character goes beyond a given distance then return failure.")]
 	public class SearchForTarget : ActionTask<AiBaseCharacter>
 	{
-		[Tooltip("The current POI indicates the center of a general area the agent believes they should be searching.")]
+		[Tooltip("The current POI is the source of the trigger that makes the agent want to search an area.")]
 		public BBParameter<Transform> currentPOI;
 		[Tooltip("If the agent goes outside this range the search will be called off.")]
 		public BBParameter<float> searchDistance = 20;
@@ -34,6 +34,8 @@ namespace WizardsCode.AI.BehaviourTree
 
 		private NavMeshAgent m_NavMeshAgent;
 		private float m_EndSearchTime;
+		public Vector3 currentSearchPosition;
+        private Transform lastPosition;
 
         protected override string info
 		{
@@ -63,11 +65,15 @@ namespace WizardsCode.AI.BehaviourTree
 				return;
 			}
 
-			m_NavMeshAgent.ResetPath();
-			m_NavMeshAgent.isStopped = false;
-			m_NavMeshAgent.speed = speed.value;
-
-			PerformSearchStep();
+			if (currentPOI.value != lastPosition)
+            {
+				lastPosition = currentPOI.value;
+				currentSearchPosition = currentPOI.value.position;
+				PerformSearchStep();
+			} else if (m_NavMeshAgent.remainingDistance < 0.25)
+			{
+				PerformSearchStep();
+			}
 		}
 
 		//Called once per frame while the action is active.
@@ -76,12 +82,15 @@ namespace WizardsCode.AI.BehaviourTree
 			if (Time.time > m_EndSearchTime)
 			{
 				m_NavMeshAgent.ResetPath();
+				currentPOI.value = null;
+				lastPosition = null;
 				EndAction(true);
 				return;
 			}
 
 			if (currentPOI.value == null)
-            {
+			{
+				m_NavMeshAgent.isStopped = true;
 				EndAction(false);
 				return; 
             }
@@ -89,7 +98,7 @@ namespace WizardsCode.AI.BehaviourTree
 			// Within awareness distance, no need to search anymore
 			if (Vector3.Distance(agent.transform.position, currentPOI.value.position) <= awarenessDistance.value)
 			{
-				m_NavMeshAgent.ResetPath();
+				m_NavMeshAgent.isStopped = true;
 				EndAction(true);
 				return;
 			}
@@ -103,7 +112,7 @@ namespace WizardsCode.AI.BehaviourTree
 			// We've got close enough now, stop advancing
 			if (m_NavMeshAgent.remainingDistance <= keepDistance.value)
 			{
-				m_NavMeshAgent.ResetPath();
+				m_NavMeshAgent.isStopped = true;
 				EndAction(true);
 				return;
 			}
@@ -131,7 +140,7 @@ namespace WizardsCode.AI.BehaviourTree
 #endif
 			float searchAreaRadius = 5 * locationCertainty.value;
 
-			var goalPos = currentPOI.value.position;
+			var goalPos = currentSearchPosition;
 			goalPos.x += Random.value * searchAreaRadius;
 			goalPos.z += Random.value * searchAreaRadius;
 
@@ -139,17 +148,15 @@ namespace WizardsCode.AI.BehaviourTree
 			if (NavMesh.SamplePosition(goalPos, out hit, 3, NavMesh.AllAreas))
 			{
 				m_NavMeshAgent.SetDestination(hit.position);
+				m_NavMeshAgent.isStopped = false;
 				m_EndSearchTime = Time.time + maxDuration.value;
 			}
 		}
 
-        protected override void OnPause() { 
-			OnStop(); 
-		}
-
+		protected override void OnPause() { OnStop(); }
 		protected override void OnStop()
 		{
-			if (agent != null && agent.gameObject.activeSelf)
+			if (m_NavMeshAgent != null && m_NavMeshAgent.gameObject.activeSelf && m_NavMeshAgent.isOnNavMesh)
 			{
 				m_NavMeshAgent.ResetPath();
 			}

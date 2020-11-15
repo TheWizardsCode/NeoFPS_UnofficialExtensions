@@ -12,16 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a686a47eee2fa44cb0a34b5d86e4d5e, type: 3}
   m_Name: Find Target
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_action":{"saveObjectAs":{"_name":"target","_targetVariableID":"a9ed15ea-79e7-42e3-95a8-d5fa04cd88fb"},"saveDistanceAs":{"_name":"distanceToTarget","_targetVariableID":"4fc4ec98-355d-4026-b4aa-355ebddfa96f"},"$type":"WizardsCode.AI.BehaviourTree.FindClosestPlayer"},"_position":{"x":303.0,"y":265.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode"}],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_name":"target","_id":"a9ed15ea-79e7-42e3-95a8-d5fa04cd88fb","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
-    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distanceToTarget":{"_name":"distanceToTarget","_id":"4fc4ec98-355d-4026-b4aa-355ebddfa96f","_isPublic":true,"$type":"NodeCanvas.Framework.Variable`1[[System.Single,
-    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
+  _serializedGraph: '{"type":"NodeCanvas.BehaviourTrees.BehaviourTree","nodes":[{"_position":{"x":190.0,"y":64.0},"$type":"NodeCanvas.BehaviourTrees.Sequencer","$id":"0"},{"_action":{"saveObjectAs":{"_name":"target","_targetVariableID":"692f529f-3c83-4006-8c46-0b0ee4950646"},"saveDistanceAs":{"_name":"distanceToTarget","_targetVariableID":"03de280e-6aa1-4f5e-82c6-6b6366d47693"},"$type":"WizardsCode.AI.BehaviourTree.FindClosestPlayer"},"_position":{"x":59.0,"y":189.0},"$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"1"},{"dynamic":true,"_position":{"x":261.0,"y":189.0},"$type":"NodeCanvas.BehaviourTrees.Selector","$id":"2"},{"_condition":{"target":{"_name":"target","_targetVariableID":"692f529f-3c83-4006-8c46-0b0ee4950646"},"maxDistance":{"_name":"sightDistance","_targetVariableID":"f73c63ea-b310-416d-93c9-8b3e5d8ec0e1"},"fieldOfView":{"_name":"fieldOfView","_targetVariableID":"0c6209b3-d2b2-4d0c-a034-2ba21fc87b8c"},"layerMask":{"value":67174912},"m_IsDebug":false,"$type":"WizardsCode.AI.NodeCanvas.CanSeeTarget"},"_position":{"x":149.0,"y":299.0006},"$type":"NodeCanvas.BehaviourTrees.ConditionNode","$id":"3"},{"successRemap":0,"_position":{"x":342.6624,"y":303.9962},"$type":"NodeCanvas.BehaviourTrees.Remapper","$id":"4"},{"_condition":{"valueA":{"_name":"currentPOI","_targetVariableID":"edb9231f-31b9-4543-8dcf-6f8811e695ed"},"valueB":{"_name":""},"_invert":true,"$type":"NodeCanvas.Tasks.Conditions.CheckVariable`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"_position":{"x":317.6668,"y":402.3327},"$type":"NodeCanvas.BehaviourTrees.ConditionalEvaluator","$id":"5"},{"_action":{"currentPOI":{"_name":"currentPOI","_targetVariableID":"edb9231f-31b9-4543-8dcf-6f8811e695ed"},"searchDistance":{"_name":"seekDistance","_targetVariableID":"f43d6064-b24c-4041-9706-5d54ebc04f34"},"awarenessDistance":{"_name":"awarenessDistance","_targetVariableID":"c43d35a9-b856-47b3-9863-76f0194076c7"},"speed":{"_name":"walkingSpeed","_targetVariableID":"a78b5304-aeb9-4cac-9590-16331e38f12f"},"maxDuration":{"_value":10.0},"keepDistance":{"_value":5.0},"locationCertainty":{"_name":"awarenessLevel","_targetVariableID":"5753beee-4eab-4632-915e-5d385282af64"},"m_IsDebug":false,"$type":"WizardsCode.AI.BehaviourTree.SearchForTarget"},"_position":{"x":323.3335,"y":529.3326},"_comment":"Investigating","$type":"NodeCanvas.BehaviourTrees.ActionNode","$id":"6"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"5"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"},{"_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"6"},"$type":"NodeCanvas.BehaviourTrees.BTConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{"target":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.target","_name":"target","_id":"692f529f-3c83-4006-8c46-0b0ee4950646","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"distanceToTarget":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.distanceToTarget","_name":"distanceToTarget","_id":"03de280e-6aa1-4f5e-82c6-6b6366d47693","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"fieldOfView":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.fieldOfView","_name":"fieldOfView","_id":"0c6209b3-d2b2-4d0c-a034-2ba21fc87b8c","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"sightDistance":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.sightDistance","_name":"sightDistance","_id":"f73c63ea-b310-416d-93c9-8b3e5d8ec0e1","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"awarenessDistance":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.awarenessDistance","_name":"awarenessDistance","_id":"c43d35a9-b856-47b3-9863-76f0194076c7","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"walkingSpeed":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.walkingSpeed","_name":"walkingSpeed","_id":"a78b5304-aeb9-4cac-9590-16331e38f12f","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"awarenessLevel":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.awarenessLevel","_name":"awarenessLevel","_id":"5753beee-4eab-4632-915e-5d385282af64","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"seekDistance":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.seekDistance","_name":"seekDistance","_id":"f43d6064-b24c-4041-9706-5d54ebc04f34","$type":"NodeCanvas.Framework.Variable`1[[System.Single,
+    mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"currentPOI":{"_propertyPath":"WizardsCode.AI.AiBaseCharacter.currentPOI","_name":"currentPOI","_id":"edb9231f-31b9-4543-8dcf-6f8811e695ed","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Transform,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"repeat":true,"$type":"NodeCanvas.BehaviourTrees.BehaviourTree+DerivedSerializationData"}}'
   _objectReferences: []
   _graphSource:
     _version: 3.08
     _category: 
     _comments: 
-    _translation: {x: 0, y: 0}
-    _zoomFactor: 1
+    _translation: {x: 286.99997, y: 76}
+    _zoomFactor: 0.7500092
   _haltSerialization: 0
 #---GRAPH_START---
 #The pretty formatted json serialization bellow is only a reference to help in version control diff. Other than that it is not used at all.
@@ -29,39 +37,248 @@ MonoBehaviour:
 #    "type": "NodeCanvas.BehaviourTrees.BehaviourTree",
 #    "nodes": [
 #        {
+#            "_position": {
+#                "x": 190.0,
+#                "y": 64.0
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.Sequencer",
+#            "$id": "0"
+#        },
+#        {
 #            "_action": {
 #                "saveObjectAs": {
 #                    "_name": "target",
-#                    "_targetVariableID": "a9ed15ea-79e7-42e3-95a8-d5fa04cd88fb"
+#                    "_targetVariableID": "692f529f-3c83-4006-8c46-0b0ee4950646"
 #                },
 #                "saveDistanceAs": {
 #                    "_name": "distanceToTarget",
-#                    "_targetVariableID": "4fc4ec98-355d-4026-b4aa-355ebddfa96f"
+#                    "_targetVariableID": "03de280e-6aa1-4f5e-82c6-6b6366d47693"
 #                },
 #                "$type": "WizardsCode.AI.BehaviourTree.FindClosestPlayer"
 #            },
 #            "_position": {
-#                "x": 303.0,
-#                "y": 265.0
+#                "x": 59.0,
+#                "y": 189.0
 #            },
-#            "$type": "NodeCanvas.BehaviourTrees.ActionNode"
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "1"
+#        },
+#        {
+#            "dynamic": true,
+#            "_position": {
+#                "x": 261.0,
+#                "y": 189.0
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.Selector",
+#            "$id": "2"
+#        },
+#        {
+#            "_condition": {
+#                "target": {
+#                    "_name": "target",
+#                    "_targetVariableID": "692f529f-3c83-4006-8c46-0b0ee4950646"
+#                },
+#                "maxDistance": {
+#                    "_name": "sightDistance",
+#                    "_targetVariableID": "f73c63ea-b310-416d-93c9-8b3e5d8ec0e1"
+#                },
+#                "fieldOfView": {
+#                    "_name": "fieldOfView",
+#                    "_targetVariableID": "0c6209b3-d2b2-4d0c-a034-2ba21fc87b8c"
+#                },
+#                "layerMask": {
+#                    "value": 67174912
+#                },
+#                "m_IsDebug": false,
+#                "$type": "WizardsCode.AI.NodeCanvas.CanSeeTarget"
+#            },
+#            "_position": {
+#                "x": 149.0,
+#                "y": 299.0006
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ConditionNode",
+#            "$id": "3"
+#        },
+#        {
+#            "successRemap": 0,
+#            "_position": {
+#                "x": 342.6624,
+#                "y": 303.9962
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.Remapper",
+#            "$id": "4"
+#        },
+#        {
+#            "_condition": {
+#                "valueA": {
+#                    "_name": "currentPOI",
+#                    "_targetVariableID": "edb9231f-31b9-4543-8dcf-6f8811e695ed"
+#                },
+#                "valueB": {
+#                    "_name": ""
+#                },
+#                "_invert": true,
+#                "$type": "NodeCanvas.Tasks.Conditions.CheckVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+#            },
+#            "_position": {
+#                "x": 317.6668,
+#                "y": 402.3327
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.ConditionalEvaluator",
+#            "$id": "5"
+#        },
+#        {
+#            "_action": {
+#                "currentPOI": {
+#                    "_name": "currentPOI",
+#                    "_targetVariableID": "edb9231f-31b9-4543-8dcf-6f8811e695ed"
+#                },
+#                "searchDistance": {
+#                    "_name": "seekDistance",
+#                    "_targetVariableID": "f43d6064-b24c-4041-9706-5d54ebc04f34"
+#                },
+#                "awarenessDistance": {
+#                    "_name": "awarenessDistance",
+#                    "_targetVariableID": "c43d35a9-b856-47b3-9863-76f0194076c7"
+#                },
+#                "speed": {
+#                    "_name": "walkingSpeed",
+#                    "_targetVariableID": "a78b5304-aeb9-4cac-9590-16331e38f12f"
+#                },
+#                "maxDuration": {
+#                    "_value": 10.0
+#                },
+#                "keepDistance": {
+#                    "_value": 5.0
+#                },
+#                "locationCertainty": {
+#                    "_name": "awarenessLevel",
+#                    "_targetVariableID": "5753beee-4eab-4632-915e-5d385282af64"
+#                },
+#                "m_IsDebug": false,
+#                "$type": "WizardsCode.AI.BehaviourTree.SearchForTarget"
+#            },
+#            "_position": {
+#                "x": 323.3335,
+#                "y": 529.3326
+#            },
+#            "_comment": "Investigating",
+#            "$type": "NodeCanvas.BehaviourTrees.ActionNode",
+#            "$id": "6"
 #        }
 #    ],
-#    "connections": [],
+#    "connections": [
+#        {
+#            "_sourceNode": {
+#                "$ref": "0"
+#            },
+#            "_targetNode": {
+#                "$ref": "1"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "0"
+#            },
+#            "_targetNode": {
+#                "$ref": "2"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "2"
+#            },
+#            "_targetNode": {
+#                "$ref": "3"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "2"
+#            },
+#            "_targetNode": {
+#                "$ref": "4"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "4"
+#            },
+#            "_targetNode": {
+#                "$ref": "5"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        },
+#        {
+#            "_sourceNode": {
+#                "$ref": "5"
+#            },
+#            "_targetNode": {
+#                "$ref": "6"
+#            },
+#            "$type": "NodeCanvas.BehaviourTrees.BTConnection"
+#        }
+#    ],
 #    "canvasGroups": [],
 #    "localBlackboard": {
 #        "_variables": {
 #            "target": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.target",
 #                "_name": "target",
-#                "_id": "a9ed15ea-79e7-42e3-95a8-d5fa04cd88fb",
-#                "_isPublic": true,
-#                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+#                "_id": "692f529f-3c83-4006-8c46-0b0ee4950646",
+#                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
 #            },
 #            "distanceToTarget": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.distanceToTarget",
 #                "_name": "distanceToTarget",
-#                "_id": "4fc4ec98-355d-4026-b4aa-355ebddfa96f",
-#                "_isPublic": true,
+#                "_id": "03de280e-6aa1-4f5e-82c6-6b6366d47693",
 #                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "fieldOfView": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.fieldOfView",
+#                "_name": "fieldOfView",
+#                "_id": "0c6209b3-d2b2-4d0c-a034-2ba21fc87b8c",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "sightDistance": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.sightDistance",
+#                "_name": "sightDistance",
+#                "_id": "f73c63ea-b310-416d-93c9-8b3e5d8ec0e1",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "awarenessDistance": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.awarenessDistance",
+#                "_name": "awarenessDistance",
+#                "_id": "c43d35a9-b856-47b3-9863-76f0194076c7",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "walkingSpeed": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.walkingSpeed",
+#                "_name": "walkingSpeed",
+#                "_id": "a78b5304-aeb9-4cac-9590-16331e38f12f",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "awarenessLevel": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.awarenessLevel",
+#                "_name": "awarenessLevel",
+#                "_id": "5753beee-4eab-4632-915e-5d385282af64",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "seekDistance": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.seekDistance",
+#                "_name": "seekDistance",
+#                "_id": "f43d6064-b24c-4041-9706-5d54ebc04f34",
+#                "$type": "NodeCanvas.Framework.Variable`1[[System.Single, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"
+#            },
+#            "currentPOI": {
+#                "_propertyPath": "WizardsCode.AI.AiBaseCharacter.currentPOI",
+#                "_name": "currentPOI",
+#                "_id": "edb9231f-31b9-4543-8dcf-6f8811e695ed",
+#                "$type": "NodeCanvas.Framework.Variable`1[[UnityEngine.Transform, UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"
 #            }
 #        }
 #    },

@@ -4,7 +4,7 @@ using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
 
-namespace WizardsCode.AI.BehaviourTree
+namespace WizardsCode.AI.NodeCanvas
 {
 
 	[Category("NeoFPS")]
@@ -34,7 +34,7 @@ namespace WizardsCode.AI.BehaviourTree
 
         protected override string info
         {
-            get { return "Can See " + target; }
+            get { return "Can see " + target; }
         }
 
         protected override string OnInit()
@@ -79,7 +79,10 @@ namespace WizardsCode.AI.BehaviourTree
 
         protected override bool OnCheck()
         {
-            if (target.value == null) return false;
+            if (target.value == null)
+            {
+                return false;
+            }
             if (target.value != lastTarget) {
                 lastTarget = target.value;
                 damageHandlers = lastTarget.GetComponentsInChildren<IDamageHandler>();
